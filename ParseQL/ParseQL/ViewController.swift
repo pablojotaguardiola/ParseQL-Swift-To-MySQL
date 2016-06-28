@@ -13,18 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let testObject = PQL(tableName: "TestTable")
+        let getTestObject = PQL(tableName: "TestTable")
         
-        testObject.fields["Foo"] = "Bar"
+        getTestObject.whereKey("Foo", equalTo: "Baar")
         
-        testObject.save()
+        getTestObject.delete()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

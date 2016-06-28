@@ -87,7 +87,7 @@ public class PQL {
     }
     
     //SAVE WITH BLOCK
-    public func saveWithBlock(completion: (AnyObject) -> ()) {
+    public func saveWithBlock(completion: (String) -> ()) {
         if (fields.count > 0) {
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             config.HTTPAdditionalHeaders = ["Accept": "application/json",
@@ -358,7 +358,7 @@ public class PQL {
     }
     
     //UPDATE OR CREATE
-    public func updateWithBlock() {
+    public func updateOrCreateWithBlock() {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.HTTPAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
