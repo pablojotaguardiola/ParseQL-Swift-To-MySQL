@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81FD66371D22CE6E00EB27A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD66361D22CE6E00EB27A8 /* AppDelegate.swift */; };
+		81FD66391D22CE6E00EB27A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD66381D22CE6E00EB27A8 /* ViewController.swift */; };
+		81FD663C1D22CE6E00EB27A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FD663A1D22CE6E00EB27A8 /* Main.storyboard */; };
+		81FD663E1D22CE6E00EB27A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FD663D1D22CE6E00EB27A8 /* Assets.xcassets */; };
+		81FD66411D22CE6E00EB27A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FD663F1D22CE6E00EB27A8 /* LaunchScreen.storyboard */; };
+		81FD664C1D22CE6F00EB27A8 /* ParseQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD664B1D22CE6F00EB27A8 /* ParseQLTests.swift */; };
+		81FD66571D22CE6F00EB27A8 /* ParseQLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD66561D22CE6F00EB27A8 /* ParseQLUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81FD66481D22CE6F00EB27A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81FD662B1D22CE6E00EB27A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81FD66321D22CE6E00EB27A8;
+			remoteInfo = ParseQL;
+		};
+		81FD66531D22CE6F00EB27A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81FD662B1D22CE6E00EB27A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81FD66321D22CE6E00EB27A8;
+			remoteInfo = ParseQL;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		81FD66331D22CE6E00EB27A8 /* ParseQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81FD66361D22CE6E00EB27A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81FD66381D22CE6E00EB27A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81FD663B1D22CE6E00EB27A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81FD663D1D22CE6E00EB27A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81FD66401D22CE6E00EB27A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81FD66421D22CE6E00EB27A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81FD66471D22CE6F00EB27A8 /* ParseQLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParseQLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81FD664B1D22CE6F00EB27A8 /* ParseQLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseQLTests.swift; sourceTree = "<group>"; };
+		81FD664D1D22CE6F00EB27A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81FD66521D22CE6F00EB27A8 /* ParseQLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParseQLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81FD66561D22CE6F00EB27A8 /* ParseQLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseQLUITests.swift; sourceTree = "<group>"; };
+		81FD66581D22CE6F00EB27A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81FD66301D22CE6E00EB27A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81FD66441D22CE6F00EB27A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81FD664F1D22CE6F00EB27A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81FD662A1D22CE6E00EB27A8 = {
+			isa = PBXGroup;
+			children = (
+				81FD66351D22CE6E00EB27A8 /* ParseQL */,
+				81FD664A1D22CE6F00EB27A8 /* ParseQLTests */,
+				81FD66551D22CE6F00EB27A8 /* ParseQLUITests */,
+				81FD66341D22CE6E00EB27A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81FD66341D22CE6E00EB27A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81FD66331D22CE6E00EB27A8 /* ParseQL.app */,
+				81FD66471D22CE6F00EB27A8 /* ParseQLTests.xctest */,
+				81FD66521D22CE6F00EB27A8 /* ParseQLUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81FD66351D22CE6E00EB27A8 /* ParseQL */ = {
+			isa = PBXGroup;
+			children = (
+				81FD66361D22CE6E00EB27A8 /* AppDelegate.swift */,
+				81FD66381D22CE6E00EB27A8 /* ViewController.swift */,
+				81FD663A1D22CE6E00EB27A8 /* Main.storyboard */,
+				81FD663D1D22CE6E00EB27A8 /* Assets.xcassets */,
+				81FD663F1D22CE6E00EB27A8 /* LaunchScreen.storyboard */,
+				81FD66421D22CE6E00EB27A8 /* Info.plist */,
+			);
+			path = ParseQL;
+			sourceTree = "<group>";
+		};
+		81FD664A1D22CE6F00EB27A8 /* ParseQLTests */ = {
+			isa = PBXGroup;
+			children = (
+				81FD664B1D22CE6F00EB27A8 /* ParseQLTests.swift */,
+				81FD664D1D22CE6F00EB27A8 /* Info.plist */,
+			);
+			path = ParseQLTests;
+			sourceTree = "<group>";
+		};
+		81FD66551D22CE6F00EB27A8 /* ParseQLUITests */ = {
+			isa = PBXGroup;
+			children = (
+				81FD66561D22CE6F00EB27A8 /* ParseQLUITests.swift */,
+				81FD66581D22CE6F00EB27A8 /* Info.plist */,
+			);
+			path = ParseQLUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81FD66321D22CE6E00EB27A8 /* ParseQL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81FD665B1D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQL" */;
+			buildPhases = (
+				81FD662F1D22CE6E00EB27A8 /* Sources */,
+				81FD66301D22CE6E00EB27A8 /* Frameworks */,
+				81FD66311D22CE6E00EB27A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParseQL;
+			productName = ParseQL;
+			productReference = 81FD66331D22CE6E00EB27A8 /* ParseQL.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81FD66461D22CE6F00EB27A8 /* ParseQLTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81FD665E1D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQLTests" */;
+			buildPhases = (
+				81FD66431D22CE6F00EB27A8 /* Sources */,
+				81FD66441D22CE6F00EB27A8 /* Frameworks */,
+				81FD66451D22CE6F00EB27A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81FD66491D22CE6F00EB27A8 /* PBXTargetDependency */,
+			);
+			name = ParseQLTests;
+			productName = ParseQLTests;
+			productReference = 81FD66471D22CE6F00EB27A8 /* ParseQLTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		81FD66511D22CE6F00EB27A8 /* ParseQLUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81FD66611D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQLUITests" */;
+			buildPhases = (
+				81FD664E1D22CE6F00EB27A8 /* Sources */,
+				81FD664F1D22CE6F00EB27A8 /* Frameworks */,
+				81FD66501D22CE6F00EB27A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81FD66541D22CE6F00EB27A8 /* PBXTargetDependency */,
+			);
+			name = ParseQLUITests;
+			productName = ParseQLUITests;
+			productReference = 81FD66521D22CE6F00EB27A8 /* ParseQLUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81FD662B1D22CE6E00EB27A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Pablo Guardiola";
+				TargetAttributes = {
+					81FD66321D22CE6E00EB27A8 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					81FD66461D22CE6F00EB27A8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 81FD66321D22CE6E00EB27A8;
+					};
+					81FD66511D22CE6F00EB27A8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 81FD66321D22CE6E00EB27A8;
+					};
+				};
+			};
+			buildConfigurationList = 81FD662E1D22CE6E00EB27A8 /* Build configuration list for PBXProject "ParseQL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81FD662A1D22CE6E00EB27A8;
+			productRefGroup = 81FD66341D22CE6E00EB27A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81FD66321D22CE6E00EB27A8 /* ParseQL */,
+				81FD66461D22CE6F00EB27A8 /* ParseQLTests */,
+				81FD66511D22CE6F00EB27A8 /* ParseQLUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81FD66311D22CE6E00EB27A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FD66411D22CE6E00EB27A8 /* LaunchScreen.storyboard in Resources */,
+				81FD663E1D22CE6E00EB27A8 /* Assets.xcassets in Resources */,
+				81FD663C1D22CE6E00EB27A8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81FD66451D22CE6F00EB27A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81FD66501D22CE6F00EB27A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81FD662F1D22CE6E00EB27A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FD66391D22CE6E00EB27A8 /* ViewController.swift in Sources */,
+				81FD66371D22CE6E00EB27A8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81FD66431D22CE6F00EB27A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FD664C1D22CE6F00EB27A8 /* ParseQLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81FD664E1D22CE6F00EB27A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FD66571D22CE6F00EB27A8 /* ParseQLUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81FD66491D22CE6F00EB27A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81FD66321D22CE6E00EB27A8 /* ParseQL */;
+			targetProxy = 81FD66481D22CE6F00EB27A8 /* PBXContainerItemProxy */;
+		};
+		81FD66541D22CE6F00EB27A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81FD66321D22CE6E00EB27A8 /* ParseQL */;
+			targetProxy = 81FD66531D22CE6F00EB27A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		81FD663A1D22CE6E00EB27A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81FD663B1D22CE6E00EB27A8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81FD663F1D22CE6E00EB27A8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81FD66401D22CE6E00EB27A8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81FD66591D22CE6F00EB27A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81FD665A1D22CE6F00EB27A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81FD665C1D22CE6F00EB27A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ParseQL/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablojota.ParseQL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		81FD665D1D22CE6F00EB27A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ParseQL/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablojota.ParseQL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		81FD665F1D22CE6F00EB27A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ParseQLTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablojota.ParseQLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParseQL.app/ParseQL";
+			};
+			name = Debug;
+		};
+		81FD66601D22CE6F00EB27A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ParseQLTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablojota.ParseQLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParseQL.app/ParseQL";
+			};
+			name = Release;
+		};
+		81FD66621D22CE6F00EB27A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ParseQLUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablojota.ParseQLUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ParseQL;
+			};
+			name = Debug;
+		};
+		81FD66631D22CE6F00EB27A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ParseQLUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablojota.ParseQLUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ParseQL;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81FD662E1D22CE6E00EB27A8 /* Build configuration list for PBXProject "ParseQL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81FD66591D22CE6F00EB27A8 /* Debug */,
+				81FD665A1D22CE6F00EB27A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81FD665B1D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81FD665C1D22CE6F00EB27A8 /* Debug */,
+				81FD665D1D22CE6F00EB27A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		81FD665E1D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQLTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81FD665F1D22CE6F00EB27A8 /* Debug */,
+				81FD66601D22CE6F00EB27A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		81FD66611D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQLUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81FD66621D22CE6F00EB27A8 /* Debug */,
+				81FD66631D22CE6F00EB27A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81FD662B1D22CE6E00EB27A8 /* Project object */;
+}
