@@ -71,6 +71,7 @@ public class PQL {
                     
                     if error == nil {
                         //CORRECT
+                        print((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String))
                     }
                     else {
                         print("error")
@@ -108,6 +109,7 @@ public class PQL {
                 }
                 
                 task = session.uploadTaskWithRequest(request, fromData: data, completionHandler: {data, response, error in
+                    
                     
                     if error == nil {
                         let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)

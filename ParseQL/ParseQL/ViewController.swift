@@ -12,7 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let testObject = PQL(tableName: "TestTable")
+        
+        testObject.fields["Foo"] = "Bar"
+        
+        testObject.save()
     }
 
     override func didReceiveMemoryWarning() {
