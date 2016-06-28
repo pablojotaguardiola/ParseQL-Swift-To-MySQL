@@ -14,6 +14,7 @@
 		81FD66411D22CE6E00EB27A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FD663F1D22CE6E00EB27A8 /* LaunchScreen.storyboard */; };
 		81FD664C1D22CE6F00EB27A8 /* ParseQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD664B1D22CE6F00EB27A8 /* ParseQLTests.swift */; };
 		81FD66571D22CE6F00EB27A8 /* ParseQLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD66561D22CE6F00EB27A8 /* ParseQLUITests.swift */; };
+		81FD66651D22CF2E00EB27A8 /* ParseQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD66641D22CF2E00EB27A8 /* ParseQL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		81FD66521D22CE6F00EB27A8 /* ParseQLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParseQLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FD66561D22CE6F00EB27A8 /* ParseQLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseQLUITests.swift; sourceTree = "<group>"; };
 		81FD66581D22CE6F00EB27A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81FD66641D22CF2E00EB27A8 /* ParseQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseQL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		81FD66351D22CE6E00EB27A8 /* ParseQL */ = {
 			isa = PBXGroup;
 			children = (
+				81FD66641D22CF2E00EB27A8 /* ParseQL.swift */,
 				81FD66361D22CE6E00EB27A8 /* AppDelegate.swift */,
 				81FD66381D22CE6E00EB27A8 /* ViewController.swift */,
 				81FD663A1D22CE6E00EB27A8 /* Main.storyboard */,
@@ -258,6 +261,7 @@
 			files = (
 				81FD66391D22CE6E00EB27A8 /* ViewController.swift in Sources */,
 				81FD66371D22CE6E00EB27A8 /* AppDelegate.swift in Sources */,
+				81FD66651D22CF2E00EB27A8 /* ParseQL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +488,7 @@
 				81FD665D1D22CE6F00EB27A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81FD665E1D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQLTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +497,7 @@
 				81FD66601D22CE6F00EB27A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81FD66611D22CE6F00EB27A8 /* Build configuration list for PBXNativeTarget "ParseQLUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +506,7 @@
 				81FD66631D22CE6F00EB27A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
