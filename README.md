@@ -40,3 +40,9 @@ Easy way to manage MySQL Databases
 ###6. Delete with block
 ######It returns affected rows amount
 ![Alt text](Images/CodeDeleteBlock.png?raw=true "Create")
+
+
+###7. Conditions
+######WhereKey (with multiple options
+![Alt text](Images/CodeWhereKey1.png?raw=true "Create")
+![Alt text](Images/CodeWhereKey2.png?raw=true "Create")
