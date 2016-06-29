@@ -26,7 +26,7 @@ Easy way to manage your own MySQL Databases directly from Swift.
 
 
 ###Use completions to manage the results
-######Maybe you want to wait the result of the tasks below. The completions return some useful data too.
+######Maybe you want to wait the result of the tasks above. The completions return some useful data too.
 
 ###4. Create with block
 ######It returns a message by now...
