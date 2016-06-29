@@ -1,5 +1,5 @@
 # ParseQL-Swift
-Easy way to manage MySQL Databases
+Easy way to manage your own MySQL Databases directly from Swift.
 
 ## Installation
 1- Add "ParseQL.swift" to your project<br>
