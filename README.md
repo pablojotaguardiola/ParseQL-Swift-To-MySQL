@@ -42,7 +42,16 @@ Easy way to manage MySQL Databases
 ![Alt text](Images/CodeDeleteBlock.png?raw=true "Create")
 
 
-###7. Conditions
-######WhereKey (with multiple options
+###7. Conditions (We'll use some of these to get data from our database)
+######WhereKey (equal, greater, less and notEqual)
 ![Alt text](Images/CodeWhereKey1.png?raw=true "Create")
 ![Alt text](Images/CodeWhereKey2.png?raw=true "Create")
+
+######OrderByAsc and OrderByDesc
+![Alt text](Images/CodeOrderBy.png?raw=true "Create")
+
+######Limit
+![Alt text](Images/CodeLimit.png?raw=true "Create")
+
+######Skip
+![Alt text](Images/CodeSkip.png?raw=true "Create")
