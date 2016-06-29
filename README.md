@@ -8,10 +8,10 @@ Easy way to manage MySQL Databases
 4- Edit "parseql/config/database.php" file with your database info.<br>
 5- Ready!<br>
 
- ###1. Create Row
- ![Alt text](Images/CodeCreate.png?raw=true "Create")
- ######And we get our first row, on our own database.
- ![Alt text](Images/TestTable1.png?raw=true "Create")
+| ###1. Create Row
+| ![Alt text](Images/CodeCreate.png?raw=true "Create")
+| ######And we get our first row, on our own database.
+| ![Alt text](Images/TestTable1.png?raw=true "Create")
 
 ###2. Update Row
 ![Alt text](Images/CodeUpdate.png?raw=true "Create")
