@@ -61,3 +61,8 @@ Easy way to manage MySQL Databases
 ###8. Get
 ######It returns an Array od Dictionaries
 ![Alt text](Images/CodeGet2.png?raw=true "Create")
+
+
+##9. Cancel
+######You can cancel any PQL object task you started
+![Alt text](Images/CodeCancel.png?raw=true "Create")
