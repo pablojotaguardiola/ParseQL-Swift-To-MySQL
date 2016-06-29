@@ -16,7 +16,7 @@ Easy way to manage MySQL Databases
 
 ###2. Update Row
 ![Alt text](Images/CodeUpdate.png?raw=true "Create")
-######Here the change.
+######Here's the change.
 ![Alt text](Images/TestTable2.png?raw=true "Update")
 
 
@@ -28,4 +28,15 @@ Easy way to manage MySQL Databases
 ###Use completions to manage the results
 
 ###4. Create with block
-![Alt text](Images/CodeCreateBlock.png?raw=true "Create")
+#####It returns a message by now...
+![Alt text](Images/CodeSaveBlock.png?raw=true "Create")
+
+
+###5. Update with block
+#####It returns affected rows as Array of Dictionaries
+![Alt text](Images/CodeUpdateBlock.png?raw=true "Create")
+
+
+###6. Delete with block
+#####It returns affected rows amount
+![Alt text](Images/CodeDeleteBlock.png?raw=true "Create")
