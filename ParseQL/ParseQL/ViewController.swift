@@ -89,6 +89,10 @@ class ViewController: UIViewController {
         
         getBlockTestObject.whereKey("Foo", equalTo: "Bar")
         
+        getBlockTestObject.limit = 100
+        
+        getBlockTestObject.skip = 15
+        
         getBlockTestObject.get {(results: [[String: AnyObject]]) in
             //Here come the data!!
             for row in results {
