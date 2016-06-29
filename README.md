@@ -11,4 +11,4 @@ Easy way to manage MySQL Databases
 ###Create Row
 ![Alt text](Images/CodeCreate.png?raw=true "Create")
 ####<br>And we get our first row, on our own database.
-![Alt text](Images/CodeCreate.png?raw=true "Create")
+![Alt text](Images/TestTable1.png?raw=true "Create")
