@@ -17,4 +17,8 @@ Easy way to manage MySQL Databases
 ###2. Update Row
 ![Alt text](Images/CodeUpdate.png?raw=true "Create")
 ######Here the change.
-![Alt text](Images/TestTable2.png?raw=true "Create")
+![Alt text](Images/TestTable2.png?raw=true "Update")
+
+
+###3. Delete Row
+![Alt text](Images/CodeDelete.png?raw=true "Delete")
