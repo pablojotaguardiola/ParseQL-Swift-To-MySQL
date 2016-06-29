@@ -25,7 +25,7 @@ public class PQL {
     var orderByDesc: String!
     
     //LIMIT
-    var limit = 1
+    var limit = 10
     var skip = 0
     
     //GEOLOCATION
@@ -71,6 +71,7 @@ public class PQL {
                     
                     if error == nil {
                         //CORRECT
+                        print((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String))
                     }
                     else {
                         print("error")
@@ -86,7 +87,7 @@ public class PQL {
     }
     
     //SAVE WITH BLOCK
-    public func saveWithBlock(completion: (AnyObject) -> ()) {
+    public func saveWithBlock(completion: (String) -> ()) {
         if (fields.count > 0) {
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             config.HTTPAdditionalHeaders = ["Accept": "application/json",
@@ -108,6 +109,7 @@ public class PQL {
                 }
                 
                 task = session.uploadTaskWithRequest(request, fromData: data, completionHandler: {data, response, error in
+                    
                     
                     if error == nil {
                         let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
@@ -356,7 +358,7 @@ public class PQL {
     }
     
     //UPDATE OR CREATE
-    public func updateWithBlock() {
+    public func updateOrCreateWithBlock() {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.HTTPAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
