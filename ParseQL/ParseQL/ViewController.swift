@@ -96,6 +96,11 @@ class ViewController: UIViewController {
             }
         }
         // ------------
+<<<<<<< HEAD
+=======
+        
+        
+>>>>>>> origin/master
     }
 }
 
