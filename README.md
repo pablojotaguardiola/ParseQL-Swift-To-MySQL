@@ -8,4 +8,4 @@ Easy way to manage MySQL Databases
 4- Edit "parseql/config/database.php" file with your database info.<br>
 5- Ready!<br>
 
-![Alt text](screen1.jpg?raw=true "Title")
+![Alt text](screen1.png?raw=true "Title")
