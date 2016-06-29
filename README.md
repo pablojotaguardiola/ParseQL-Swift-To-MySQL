@@ -26,6 +26,7 @@ Easy way to manage MySQL Databases
 
 
 ###Use completions to manage the results
+######Maybe you want to wait the result of the tasks below. The completions return some useful data too.
 
 ###4. Create with block
 ######It returns a message by now...
