@@ -22,3 +22,10 @@ Easy way to manage MySQL Databases
 
 ###3. Delete Row
 ![Alt text](Images/CodeDelete.png?raw=true "Delete")
+#####We'll talk about "where key" later...
+
+
+###Use completions to manage the results
+
+###4. Create with block
+![Alt text](Images/CodeCreateBlock.png?raw=true "Create")
