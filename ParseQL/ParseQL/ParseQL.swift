@@ -25,7 +25,7 @@ public class PQL {
     var orderByDesc: String!
     
     //LIMIT
-    var limit = 1
+    var limit = 10
     var skip = 0
     
     //GEOLOCATION
