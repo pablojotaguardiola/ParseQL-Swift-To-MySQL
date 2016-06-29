@@ -55,3 +55,9 @@ Easy way to manage MySQL Databases
 
 ######Skip
 ![Alt text](Images/CodeSkip.png?raw=true "Create")
+
+
+
+###8. Get
+######It returns an Array od Dictionaries
+![Alt text](Images/CodeGet2.png?raw=true "Create")
