@@ -12,7 +12,7 @@ Easy way to manage your own MySQL Databases directly from Swift.
 
 ###1. Create Row
 ![Alt text](Images/CodeCreate.png?raw=true "Create Row")
-######And we get our first row, on our own database.
+######And we get our first row, in our own database.
 ![Alt text](Images/TestTable1.png?raw=true "Create")
 
 
