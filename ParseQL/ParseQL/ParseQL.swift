@@ -12,6 +12,9 @@ public class PQL {
     
     let BASE_URL: String = "http://parseql.com"
     
+    let PRIVATE_KEY: String = "dnuehjbdq834+ç´`"
+    let TOKEN: String = "`p+23049diqowedqhd++ç!ª!·"
+    
     //TABLE
     var tableName: String!
     
@@ -57,11 +60,15 @@ public class PQL {
             let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/saveObject")!)
             request.HTTPMethod = "POST"
             
-            let valuesToSend = ["tableName": tableName, "fieldsDictionary": fields]
+            //DICTIONARY TO SEND
+            let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "fieldsDictionary": fields]
+            
+            //ENCRYPT DICTIONARY
+            let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
             
             
             do {
-                let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+                let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
                 
                 if task != nil {
                     task.cancel()
@@ -98,10 +105,14 @@ public class PQL {
             let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/saveObject")!)
             request.HTTPMethod = "POST"
             
-            let valuesToSend = ["tableName": tableName, "fieldsDictionary": fields]
+            //DICTIONARY TO SEND
+            let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "fieldsDictionary": fields]
+            
+            //ENCRYPT DICTIONARY
+            let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
             
             do {
-                let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+                let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
                 
                 if task != nil {
                     task.cancel()
@@ -111,10 +122,18 @@ public class PQL {
                     
                     if error == nil {
                         let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                        let resp = responseDictionary["encryptedData"] as! String
+                        
+                        //DESENCRYPTED JSON IN STRING FORMAT
+                        let desencryptedString = self.desencryptByteArray(resp)
+                        
+                        //DESENCRYPTED JSON
+                        let desencryptedJson = self.convertStringToDictionary(desencryptedString)
                         
                         dispatch_async(dispatch_get_main_queue()) {
-                            completion(responseDictionary["Resp"] as! String)
+                            completion(desencryptedJson["Resp"] as! String)
                         }
+
                     }
                     else {
                         print(error)
@@ -634,6 +653,133 @@ public class PQL {
             }
         }
         return [String: AnyObject]()
+    }
+    
+    internal func xorWithKey(byteArray: [UInt8], key: String) -> [UInt8] {
+        var i = 0
+        
+        var resultByteArray: [UInt8] = byteArray
+        let keyCharArray: [UInt8] = [UInt8](key.utf8)
+        
+        for j in 0..<byteArray.count {
+            
+            resultByteArray[j] ^= keyCharArray[i]
+            
+            //CNT
+            i += 1
+            if i >= keyCharArray.count {
+                i = 0
+            }
+        }
+        
+        return resultByteArray
+    }
+    
+    internal func encryptDictionaryJson (dictionary: [String: AnyObject]) -> [Int] {
+        var encryptedData = [UInt8]()
+        do {
+            let dataToEncrypt = try NSJSONSerialization.dataWithJSONObject(dictionary, options:NSJSONWritingOptions.PrettyPrinted)
+            
+            let count = dataToEncrypt.length / sizeof(UInt8)
+            var dataToEncryptArray = [UInt8](count: count, repeatedValue: 0)
+            dataToEncrypt.getBytes(&dataToEncryptArray, length:count * sizeof(UInt8))
+            
+            encryptedData = xorWithKey([UInt8](String(data: dataToEncrypt, encoding: NSUTF8StringEncoding)!.utf8), key: PRIVATE_KEY)
+        }
+        catch {
+            
+        }
+        
+        var encryptedArray = [Int]()
+        
+        for uint8 in encryptedData {
+            encryptedArray.append(Int(uint8))
+        }
+        
+        return encryptedArray
+    }
+    
+    internal func desencryptByteArray(byteArrayStringBefore: String) -> String {
+        var byteArrayInt = [Int]()
+        var byteArrayStringToParse = byteArrayStringBefore
+        
+        byteArrayStringToParse = byteArrayStringToParse.stringByReplacingOccurrencesOfString("[", withString: "")
+        byteArrayStringToParse = byteArrayStringToParse.stringByReplacingOccurrencesOfString("]", withString: "")
+        
+        let byteArrayString = byteArrayStringToParse.componentsSeparatedByString(",")
+        
+        for int in byteArrayString {
+            byteArrayInt.append(Int(int)!)
+        }
+        
+        
+        var resultArray: [UInt8] = [UInt8]()
+        
+        for char in byteArrayInt {
+            resultArray.append(UInt8(char))
+        }
+        
+        let desencryptedArray = self.xorWithKey(resultArray, key: self.PRIVATE_KEY)
+        
+        let stringResp = String(bytes: desencryptedArray, encoding: NSUTF8StringEncoding)
+        
+        return stringResp!
+    }
+    
+    //TESTS
+    //SAVE WITH BLOCK TEST
+    public func saveWithBlockTest(completion: (String) -> ()) {
+        if (fields.count > 0) {
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            config.HTTPAdditionalHeaders = ["Accept": "application/json",
+                                            "Content-Type": "application/json"
+            ]
+            
+            let session = NSURLSession(configuration: config)
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/saveObjectTest")!)
+            request.HTTPMethod = "POST"
+            
+            //DICTIONARY TO SEND
+            let valuesToSend: [String: AnyObject] = ["tableName": tableName, "fieldsDictionary": fields]
+            
+            //ENCRYPT DICTIONARY
+            let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
+            
+            do {
+                let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
+                
+                if task != nil {
+                    task.cancel()
+                }
+                
+                task = session.uploadTaskWithRequest(request, fromData: data, completionHandler: {data, response, error in
+                    
+                    if error == nil {
+                        let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                        let resp = responseDictionary["encryptedData"] as! String
+                        
+                        //DESENCRYPTED JSON IN STRING FORMAT
+                        let desencryptedString = self.desencryptByteArray(resp)
+                        
+                        //DESENCRYPTED JSON
+                        //let desencryptedJson = self.convertStringToDictionary(desencryptedString)
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            completion(desencryptedString)
+                        }
+                    }
+                    else {
+                        print(error)
+                    }
+                    
+                })
+                task.resume()
+                
+            } catch {
+                
+            }
+        }
     }
 }
 
