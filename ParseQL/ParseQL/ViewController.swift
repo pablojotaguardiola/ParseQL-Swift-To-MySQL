@@ -61,11 +61,9 @@ class ViewController: UIViewController {
         
         updateBlockTestObject.setKey("Foo", value: "Baaar")
         
-        updateBlockTestObject.updateWithBlock {(affectedRows: [[String: AnyObject]]) in
+        updateBlockTestObject.updateWithBlock {(affectedRows: Int) in
             //Update success
-            if affectedRows.count > 0 {
-                print(affectedRows[0]["id"]) //"0"
-            }
+            print(affectedRows) //"1"
         }
         // ------------
         
@@ -85,18 +83,18 @@ class ViewController: UIViewController {
         let getBlockTestObject = PQL(tableName: "TestTable")
         
         getBlockTestObject.orderByAsc = "id"
-        getBlockTestObject.orderByDesc = "id"
+        //getBlockTestObject.orderByDesc = "id"
         
         getBlockTestObject.whereKey("Foo", equalTo: "Bar")
         
         getBlockTestObject.limit = 100
         
-        getBlockTestObject.skip = 15
+        getBlockTestObject.skip = 0
         
         getBlockTestObject.get {(results: [[String: AnyObject]]) in
             //Here come the data!!
             for row in results {
-                print(row["Foo"]) //"Bar"
+                print(row["Foo"]!) //"Bar"
             }
         }
         // ------------

@@ -1,6 +1,6 @@
 <?php
 define("TOKEN", "`p+23049diqowedqhd++ç!ª!·", TRUE);
-define("PRIVATEKEY", "dnuehjbdq834+ç´`", TRUE);
+define("PRIVATEKEY", "duybewdkwedw787", TRUE);
 
 class ParseQLController extends CI_Controller {
 
@@ -54,7 +54,7 @@ class ParseQLController extends CI_Controller {
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -71,14 +71,14 @@ class ParseQLController extends CI_Controller {
 		if ($desencryptedJson["token"] == TOKEN) {
 			unset($desencryptedJson["token"]);
 			//MODEL
-			$encryptedResponse = $this->parseQLModel->getObject($objectData);
+			$encryptedResponse = $this->parseQLModel->getObject($desencryptedJson);
 			echo json_encode(array(
 				"encryptedData" => $this->stringToEncryptedByteArray($encryptedResponse)
 			));
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -95,14 +95,14 @@ class ParseQLController extends CI_Controller {
 		if ($desencryptedJson["token"] == TOKEN) {
 			unset($desencryptedJson["token"]);
 			//MODEL
-			$encryptedResponse = $this->parseQLModel->getCreateObject($objectData);
+			$encryptedResponse = $this->parseQLModel->getCreateObject($desencryptedJson);
 			echo json_encode(array(
 				"encryptedData" => $this->stringToEncryptedByteArray($encryptedResponse)
 			));
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -119,14 +119,14 @@ class ParseQLController extends CI_Controller {
 		if ($desencryptedJson["token"] == TOKEN) {
 			unset($desencryptedJson["token"]);
 			//MODEL
-			$encryptedResponse = $this->parseQLModel->updateCreateObject($objectData);
+			$encryptedResponse = $this->parseQLModel->updateCreateObject($desencryptedJson);
 			echo json_encode(array(
 					"encryptedData" => $this->stringToEncryptedByteArray($encryptedResponse)
 				));
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -143,14 +143,15 @@ class ParseQLController extends CI_Controller {
 		if ($desencryptedJson["token"] == TOKEN) {
 			unset($desencryptedJson["token"]);
 			//MODEL
-			$encryptedResponse = $this->parseQLModel->updateObject($objectData);
+			$encryptedResponse = $this->parseQLModel->updateObject($desencryptedJson);
+
 			echo json_encode(array(
 					"encryptedData" => $this->stringToEncryptedByteArray($encryptedResponse)
 				));
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -167,14 +168,14 @@ class ParseQLController extends CI_Controller {
 		if ($desencryptedJson["token"] == TOKEN) {
 			unset($desencryptedJson["token"]);
 			//MODEL
-			$encryptedResponse = $this->parseQLModel->deleteObject($objectData);
+			$encryptedResponse = $this->parseQLModel->deleteObject($desencryptedJson);
 			echo json_encode(array(
 				"encryptedData" => $this->stringToEncryptedByteArray($encryptedResponse)
 			));
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -191,14 +192,14 @@ class ParseQLController extends CI_Controller {
 		if ($desencryptedJson["token"] == TOKEN) {
 			unset($desencryptedJson["token"]);
 			//MODEL
-			$encryptedResponse = $this->parseQLModel->count($objectData);
+			$encryptedResponse = $this->parseQLModel->count($desencryptedJson);
 			echo json_encode(array(
 				"encryptedData" => $this->stringToEncryptedByteArray($encryptedResponse)
 			));
 		}
 		else {
 			echo json_encode(array(
-				"encryptedData" => array("Resp" => "INVALID TOKEN")
+				"encryptedData" => $this->stringToEncryptedByteArray(json_encode(array("Resp" => "INVALID TOKEN")))
 			));
 		}
 	}
@@ -261,7 +262,7 @@ class ParseQLController extends CI_Controller {
 			$resultArray[] = $xor;
 
 			$i++;
-			if ($i >= count($keyArray)) {
+			if ($i >= count($keyArray)+1) {
 				$i = 1;
 			}
 		}

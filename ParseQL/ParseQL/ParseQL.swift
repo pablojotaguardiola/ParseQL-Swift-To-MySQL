@@ -12,7 +12,7 @@ public class PQL {
     
     let BASE_URL: String = "http://parseql.com"
     
-    let PRIVATE_KEY: String = "dnuehjbdq834+ç´`"
+    let PRIVATE_KEY: String = "duybewdkwedw787"
     let TOKEN: String = "`p+23049diqowedqhd++ç!ª!·"
     
     //TABLE
@@ -121,6 +121,7 @@ public class PQL {
                 task = session.uploadTaskWithRequest(request, fromData: data, completionHandler: {data, response, error in
                     
                     if error == nil {
+                        //print(NSString(data: data!, encoding: NSUTF8StringEncoding)!)
                         let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
                         let resp = responseDictionary["encryptedData"] as! String
                         
@@ -133,7 +134,6 @@ public class PQL {
                         dispatch_async(dispatch_get_main_queue()) {
                             completion(desencryptedJson["Resp"] as! String)
                         }
-
                     }
                     else {
                         print(error)
@@ -160,7 +160,8 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/getObject")!)
         request.HTTPMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        //DICTIONARY TO SEND
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
         
         if orderByAsc != nil {
             valuesToSend["orderByAsc"] = orderByAsc
@@ -175,8 +176,11 @@ public class PQL {
             valuesToSend["longitude"] = longitude
         }
         
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
+        
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -186,10 +190,17 @@ public class PQL {
                 
                 if error == nil {
                     let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                    let resp = responseDictionary["encryptedData"] as! String
+                    
+                    //DESENCRYPTED JSON IN STRING FORMAT
+                    let desencryptedString = self.desencryptByteArray(resp)
+                    
+                    //DESENCRYPTED JSON
+                    let desencryptedJson = self.convertStringToDictionary(desencryptedString)
                     
                     var respon = [[String: AnyObject]]()
                     
-                    if let dictionaryResponse = responseDictionary["Resp"] as? [[String: AnyObject]] {
+                    if let dictionaryResponse = desencryptedJson["Resp"] as? [[String: AnyObject]] {
                         for row in dictionaryResponse {
                             respon.append(row)
                         }
@@ -223,7 +234,7 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/getCreateObject")!)
         request.HTTPMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["tableName": tableName, "fieldsDictionary": fields, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "fieldsDictionary": fields, "whereDictionary": whereKey, "limit": limit, "skip": skip]
         
         if orderByAsc != nil {
             valuesToSend["orderByAsc"] = orderByAsc
@@ -238,8 +249,11 @@ public class PQL {
             valuesToSend["longitude"] = longitude
         }
         
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
+        
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -249,10 +263,17 @@ public class PQL {
                 
                 if error == nil {
                     let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                    let resp = responseDictionary["encryptedData"] as! String
                     
-                    var respon = responseDictionary["Resp"] as! [[String: AnyObject]]
+                    //DESENCRYPTED JSON IN STRING FORMAT
+                    let desencryptedString = self.desencryptByteArray(resp)
                     
-                    if let dictionaryResponse = responseDictionary["Resp"] as? [[String: AnyObject]] {
+                    //DESENCRYPTED JSON
+                    let desencryptedJson = self.convertStringToDictionary(desencryptedString)
+                    
+                    var respon = [[String: AnyObject]]()
+                    
+                    if let dictionaryResponse = desencryptedJson["Resp"] as? [[String: AnyObject]] {
                         for row in dictionaryResponse {
                             respon.append(row)
                         }
@@ -286,10 +307,13 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateCreateObject")!)
         request.HTTPMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -299,10 +323,17 @@ public class PQL {
                 
                 if error == nil {
                     let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                    let resp = responseDictionary["encryptedData"] as! String
+                    
+                    //DESENCRYPTED JSON IN STRING FORMAT
+                    let desencryptedString = self.desencryptByteArray(resp)
+                    
+                    //DESENCRYPTED JSON
+                    let desencryptedJson = self.convertStringToDictionary(desencryptedString)
                     
                     var respon = [[String: AnyObject]]()
                     
-                    if let dictionaryResponse = responseDictionary["Resp"] as? [[String: AnyObject]] {
+                    if let dictionaryResponse = desencryptedJson["Resp"] as? [[String: AnyObject]] {
                         for row in dictionaryResponse {
                             respon.append(row)
                         }
@@ -325,7 +356,7 @@ public class PQL {
     }
     
     //UPDATE WITH BLOCK
-    public func updateWithBlock(completion: ([[String: AnyObject]]) -> ()) {
+    public func updateWithBlock(completion: (Int) -> ()) {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.HTTPAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
@@ -336,10 +367,13 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateObject")!)
         request.HTTPMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -348,18 +382,18 @@ public class PQL {
             task = session.uploadTaskWithRequest(request, fromData: data, completionHandler: {data, response, error in
                 
                 if error == nil {
+                    //print(NSString(data: data!, encoding: NSUTF8StringEncoding)!)
                     let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                    let resp = responseDictionary["encryptedData"] as! String
                     
-                    var respon = [[String: AnyObject]]()
+                    //DESENCRYPTED JSON IN STRING FORMAT
+                    let desencryptedString = self.desencryptByteArray(resp)
                     
-                    if let dictionaryResponse = responseDictionary["Resp"] as? [[String: AnyObject]] {
-                        for row in dictionaryResponse {
-                            respon.append(row)
-                        }
-                    }
+                    //DESENCRYPTED JSON
+                    let desencryptedJson = self.convertStringToDictionary(desencryptedString)
                     
                     dispatch_async(dispatch_get_main_queue()) {
-                        completion(respon)
+                        completion(desencryptedJson["Resp"]!["affectedRows"] as! Int)
                     }
                 }
                 else {
@@ -386,10 +420,13 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateCreateObject")!)
         request.HTTPMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -424,10 +461,13 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateObject")!)
         request.HTTPMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -462,7 +502,7 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/deleteObject")!)
         request.HTTPMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
         
         if orderByAsc != nil {
             valuesToSend["orderByAsc"] = orderByAsc
@@ -477,8 +517,11 @@ public class PQL {
             valuesToSend["longitude"] = longitude
         }
         
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
+        
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -513,7 +556,7 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/deleteObject")!)
         request.HTTPMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
         
         if orderByAsc != nil {
             valuesToSend["orderByAsc"] = orderByAsc
@@ -528,8 +571,11 @@ public class PQL {
             valuesToSend["longitude"] = longitude
         }
         
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
+        
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -539,8 +585,15 @@ public class PQL {
                 
                 if error == nil {
                     let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                    let resp = responseDictionary["encryptedData"] as! String
                     
-                    let respon = responseDictionary["Resp"] as! [String: AnyObject]
+                    //DESENCRYPTED JSON IN STRING FORMAT
+                    let desencryptedString = self.desencryptByteArray(resp)
+                    
+                    //DESENCRYPTED JSON
+                    let desencryptedJson = self.convertStringToDictionary(desencryptedString)
+                    
+                    let respon = desencryptedJson["Resp"] as! [String: AnyObject]
                     
                     
                     dispatch_async(dispatch_get_main_queue()) {
@@ -571,7 +624,7 @@ public class PQL {
         let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/count")!)
         request.HTTPMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["tableName": tableName, "whereDictionary": whereKey]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey]
         
         if geoDistance != nil && latitude != nil && longitude != nil {
             valuesToSend["distance"] = geoDistance
@@ -579,8 +632,11 @@ public class PQL {
             valuesToSend["longitude"] = longitude
         }
         
+        //ENCRYPT DICTIONARY
+        let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(valuesToSend)]
+        
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSend, options:NSJSONWritingOptions.PrettyPrinted)
+            let data = try NSJSONSerialization.dataWithJSONObject(valuesToSendEncrypted, options:NSJSONWritingOptions.PrettyPrinted)
             
             if task != nil {
                 task.cancel()
@@ -590,8 +646,15 @@ public class PQL {
                 
                 if error == nil {
                     let responseDictionary = self.convertStringToDictionary((NSString(data: data!, encoding: NSUTF8StringEncoding)! as String) as String)
+                    let resp = responseDictionary["encryptedData"] as! String
                     
-                    let respon = responseDictionary["Resp"] as! [String: AnyObject]
+                    //DESENCRYPTED JSON IN STRING FORMAT
+                    let desencryptedString = self.desencryptByteArray(resp)
+                    
+                    //DESENCRYPTED JSON
+                    let desencryptedJson = self.convertStringToDictionary(desencryptedString)
+                    
+                    let respon = desencryptedJson["Resp"] as! [String: AnyObject]
                     
                     
                     dispatch_async(dispatch_get_main_queue()) {
