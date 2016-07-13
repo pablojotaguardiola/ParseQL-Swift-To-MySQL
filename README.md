@@ -3,11 +3,11 @@ Easy way to manage your own MySQL Databases just with Swift.
 
 ## Installation
 1- Add "ParseQL.swift" to your Xcode project.<br>
-2- Add "parseql" folder (inside PHP folder), to your hosting.<br>
-3- Edit BASE_URL in "ParseQL.swift" file, to point to "parseql" folder in your hosting.<br>
-4- Write your own "PRIVATE_KEY" and "TOKEN" in "ParseQL.swift".<br>
-5- Wirte the same "PRIVATE_KEY" and "TOKEN" in "parseql/application/controllers/ParseQLController.php".<br>
-6- Edit "parseql/config/database.php" file with your database info (at the bottom on the file).<br>
+2- Write your own "PRIVATE_KEY" and "TOKEN" in "ParseQL.swift".<br>
+3- Write the same "PRIVATE_KEY" and "TOKEN" in "PHP/parseql/application/controllers/ParseQLController.php".<br>
+4- Edit "PHP/parseql/config/database.php" file with your database info (at the bottom on the file).<br>
+5- Upload "parseql" folder, to your hosting.<br>
+6- Edit BASE_URL in "ParseQL.swift" file, to point to "parseql" folder in your hosting.<br>
 7- Ready!<br>
 
 ###1. Create Row
