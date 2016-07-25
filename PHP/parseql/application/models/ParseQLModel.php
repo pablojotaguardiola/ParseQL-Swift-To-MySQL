@@ -59,7 +59,7 @@ class ParseQLModel extends CI_Model {
 			if (isset($objectData['orderByAsc'])) {
 				$this->db->order_by($objectData['orderByAsc'], "asc");
 			} else if (isset($objectData['orderByDesc'])) {
-				$this->db->order_by($objectData['orderByAsc'], "desc");
+				$this->db->order_by($objectData['orderByDesc'], "desc");
 			}
 
 			//WHERE CONDITIONS
@@ -102,7 +102,7 @@ class ParseQLModel extends CI_Model {
 		if (isset($objectData['orderByAsc'])) {
 			$this->db->order_by($objectData['orderByAsc'], "asc");
 		} else if (isset($objectData['orderByDesc'])) {
-			$this->db->order_by($objectData['orderByAsc'], "desc");
+			$this->db->order_by($objectData['orderByDesc'], "desc");
 		}
 
 		//WHERE CONDITIONS
