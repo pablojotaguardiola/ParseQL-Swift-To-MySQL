@@ -29,6 +29,7 @@ Here's the change.
 
 ![Alt text](Images/TestTable2.png?raw=true "Update Row")
 
+<br>
 
 <h2>3. Delete Row</h2>
 
@@ -39,6 +40,7 @@ We'll talk about "where key" later...
 Use completions to manage the results.
 Maybe you want to wait the result of the tasks above. The completions return some useful data too.
 
+<br>
 
 <h2>4. Create with block</h2>
 
@@ -46,6 +48,7 @@ It returns a message by now...
 
 ![Alt text](Images/CodeSaveBlock.png?raw=true "Create With Block")
 
+<br>
 
 <h2>5. Update with block</h2>
 
@@ -53,6 +56,7 @@ It returns affected rows as Array of Dictionaries
 
 ![Alt text](Images/CodeUpdateBlock.png?raw=true "Update With Block")
 
+<br>
 
 <h2>6. Delete with block</h2>
 
@@ -60,6 +64,7 @@ It returns affected rows amount
 
 ![Alt text](Images/CodeDeleteBlock.png?raw=true "Delete With Block")
 
+<br>
 
 <h2>7. Conditions (We'll use some of these to get data from our database)</h2>
 
@@ -80,7 +85,7 @@ It returns affected rows amount
 
 ![Alt text](Images/CodeSkip.png?raw=true "Skip")
 
-
+<br>
 
 <h2>8. Get</h2>
 
@@ -88,6 +93,7 @@ It returns an Array or Dictionaries
 
 ![Alt text](Images/CodeGet2.png?raw=true "Get")
 
+<br>
 
 <h2>9. Cancel</h2>
 
