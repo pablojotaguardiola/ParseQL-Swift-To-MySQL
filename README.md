@@ -10,9 +10,9 @@ Easy way to manage your own MySQL Databases just with Swift.
 6- Edit BASE_URL in "ParseQL.swift" file, to point to "parseql" folder in your hosting.<br>
 7- Ready!<br>
 <h2>1. Create Row</h2>
-![Alt text](Images/CodeCreate.png?raw=true "Create Row")
-######And we get our first row, in our own database.
-######Don't worry about create the table and the columns, if they don't exist, ParseQL will create them.
+(Images/CodeCreate.png?raw=true "Create Row")
+    And we get our first row, in our own database.
+    Don't worry about create the table and the columns, if they don't exist, ParseQL will create them.
 ![Alt text](Images/TestTable1.png?raw=true "Create")
 
 
