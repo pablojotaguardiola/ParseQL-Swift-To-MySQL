@@ -33,8 +33,8 @@ Here's the change.
 
 We'll talk about "where key" later...
 
-<h3>Use completions to manage the results
-Maybe you want to wait the result of the tasks above. The completions return some useful data too.</h3>
+Use completions to manage the results.
+Maybe you want to wait the result of the tasks above. The completions return some useful data too.
 
 <h2>4. Create with block</h2>
 
@@ -58,18 +58,18 @@ It returns affected rows amount
 
 <h2>7. Conditions (We'll use some of these to get data from our database)</h2>
 
-WhereKey (equal, greater, less and notEqual)
+<h4>WhereKey (equal, greater, less and notEqual)</h4>
 
 ![Alt text](Images/CodeWhereKey1.png?raw=true "Conditions")
 ![Alt text](Images/CodeWhereKey2.png?raw=true "Conditions")
 
-OrderByAsc and OrderByDesc
+<h4>OrderByAsc and OrderByDesc</h4>
 ![Alt text](Images/CodeOrderBy.png?raw=true "OrderBy")
 
-Limit
+<h4>Limit</h4>
 ![Alt text](Images/CodeLimit.png?raw=true "Limit")
 
-Skip
+<h4>Skip</h4>
 ![Alt text](Images/CodeSkip.png?raw=true "Skip")
 
 
