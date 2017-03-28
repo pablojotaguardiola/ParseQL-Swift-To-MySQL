@@ -18,14 +18,17 @@ Easy way to manage your own MySQL Databases just with Swift.
     
 ![Alt text](Images/TestTable1.png?raw=true "Create")
 
+<br>
 
 <h2>2. Update Row</h2>
+
 
 ![Alt text](Images/CodeUpdate.png?raw=true "Update Row")
 
 Here's the change.
 
 ![Alt text](Images/TestTable2.png?raw=true "Update Row")
+
 
 <h2>3. Delete Row</h2>
 
@@ -36,11 +39,13 @@ We'll talk about "where key" later...
 Use completions to manage the results.
 Maybe you want to wait the result of the tasks above. The completions return some useful data too.
 
+
 <h2>4. Create with block</h2>
 
 It returns a message by now...
 
 ![Alt text](Images/CodeSaveBlock.png?raw=true "Create With Block")
+
 
 <h2>5. Update with block</h2>
 
@@ -64,12 +69,15 @@ It returns affected rows amount
 ![Alt text](Images/CodeWhereKey2.png?raw=true "Conditions")
 
 <h4>OrderByAsc and OrderByDesc</h4>
+
 ![Alt text](Images/CodeOrderBy.png?raw=true "OrderBy")
 
 <h4>Limit</h4>
+
 ![Alt text](Images/CodeLimit.png?raw=true "Limit")
 
 <h4>Skip</h4>
+
 ![Alt text](Images/CodeSkip.png?raw=true "Skip")
 
 
