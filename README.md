@@ -20,55 +20,69 @@ Easy way to manage your own MySQL Databases just with Swift.
 
 
 <h2>2. Update Row</h2>
+
 ![Alt text](Images/CodeUpdate.png?raw=true "Update Row")
-######Here's the change.
+
+Here's the change.
+
 ![Alt text](Images/TestTable2.png?raw=true "Update Row")
 
-
 <h2>3. Delete Row</h2>
+
 ![Alt text](Images/CodeDelete.png?raw=true "Delete Row")
-    We'll talk about "where key" later...
 
+We'll talk about "where key" later...
 
-    <h3>Use completions to manage the results
-    Maybe you want to wait the result of the tasks above. The completions return some useful data too.</h3>
+<h3>Use completions to manage the results
+Maybe you want to wait the result of the tasks above. The completions return some useful data too.</h3>
 
 <h2>4. Create with block</h2>
-######It returns a message by now...
+
+It returns a message by now...
+
 ![Alt text](Images/CodeSaveBlock.png?raw=true "Create With Block")
 
-
 <h2>5. Update with block</h2>
-######It returns affected rows as Array of Dictionaries
+
+It returns affected rows as Array of Dictionaries
+
 ![Alt text](Images/CodeUpdateBlock.png?raw=true "Update With Block")
 
 
 <h2>6. Delete with block</h2>
-######It returns affected rows amount
+
+It returns affected rows amount
+
 ![Alt text](Images/CodeDeleteBlock.png?raw=true "Delete With Block")
 
 
 <h2>7. Conditions (We'll use some of these to get data from our database)</h2>
-######WhereKey (equal, greater, less and notEqual)
+
+WhereKey (equal, greater, less and notEqual)
+
 ![Alt text](Images/CodeWhereKey1.png?raw=true "Conditions")
 ![Alt text](Images/CodeWhereKey2.png?raw=true "Conditions")
 
-######OrderByAsc and OrderByDesc
+OrderByAsc and OrderByDesc
 ![Alt text](Images/CodeOrderBy.png?raw=true "OrderBy")
 
-######Limit
+Limit
 ![Alt text](Images/CodeLimit.png?raw=true "Limit")
 
-######Skip
+Skip
 ![Alt text](Images/CodeSkip.png?raw=true "Skip")
 
 
 
 <h2>8. Get</h2>
-######It returns an Array or Dictionaries
+
+It returns an Array or Dictionaries
+
 ![Alt text](Images/CodeGet2.png?raw=true "Get")
 
 
 <h2>9. Cancel</h2>
-######You can cancel any PQL object task you started
+
+You can cancel any PQL object task you started
+
 ![Alt text](Images/CodeCancel.png?raw=true "Cancel")
