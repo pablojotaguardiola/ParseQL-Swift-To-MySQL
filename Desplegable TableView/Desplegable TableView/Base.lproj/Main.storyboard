@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TPp-j5-pl6">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="DF5-8v-AQg">
+            <objects>
+                <tableViewController id="TPp-j5-pl6" customClass="TableViewController" customModule="Desplegable_TableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" id="t5S-qw-QkX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="89" id="JFC-no-qbg" customClass="TableViewCell" customModule="Desplegable_TableView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JFC-no-qbg" id="aNc-5n-cGT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="88.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTg-5r-8ce">
+                                            <rect key="frame" x="281" y="8" width="38" height="30"/>
+                                            <state key="normal" title="Open"/>
+                                            <connections>
+                                                <action selector="openCloseButton:" destination="JFC-no-qbg" eventType="touchUpInside" id="v26-K1-k8h"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jTg-5r-8ce" firstAttribute="centerX" secondItem="aNc-5n-cGT" secondAttribute="centerX" id="67X-ES-mT8"/>
+                                        <constraint firstItem="jTg-5r-8ce" firstAttribute="centerY" secondItem="aNc-5n-cGT" secondAttribute="centerY" id="8WY-Ze-hIo"/>
+                                        <constraint firstItem="jTg-5r-8ce" firstAttribute="top" secondItem="aNc-5n-cGT" secondAttribute="topMargin" id="WBn-aU-SWX"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="8WY-Ze-hIo"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TPp-j5-pl6" id="Rsk-wR-4Nx"/>
+                            <outlet property="delegate" destination="TPp-j5-pl6" id="M8m-Dj-tWO"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYz-FP-RAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="250"/>
+        </scene>
+    </scenes>
+</document>

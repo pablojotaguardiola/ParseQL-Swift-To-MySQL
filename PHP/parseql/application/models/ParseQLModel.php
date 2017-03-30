@@ -246,6 +246,7 @@ class ParseQLModel extends CI_Model {
             	"type" => "TEXT"
        		);
 		}
+		return $response;
 	}
 }
 ?>
