@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // MARK: CREATE
         let saveTestObject = PQL(tableName: "TestTable")
         
-        saveTestObject.fields["Foo"] = "Bar"
+        saveTestObject.fields["Foo"] = "Bar" as AnyObject?
         
         saveTestObject.save()
         // ------------
@@ -25,9 +25,9 @@ class ViewController: UIViewController {
         // MARK: UPDATE
         let updateTestObject = PQL(tableName: "TestTable")
         
-        updateTestObject.whereKey(key: "Foo", equalTo: "Bar")
+        updateTestObject.whereKey(key: "Foo", equalTo: "Bar" as AnyObject)
         
-        updateTestObject.setKey(key: "Foo", value: "Baaar")
+        updateTestObject.setKey(key: "Foo", value: "Baaar" as AnyObject)
         
         updateTestObject.update()
         // ------------
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         // MARK: DELETE
         let deleteTestObject = PQL(tableName: "TestTable")
         
-        deleteTestObject.whereKey(key: "Foo", equalTo: "Baaar")
+        deleteTestObject.whereKey(key: "Foo", equalTo: "Baaar" as AnyObject)
         
         deleteTestObject.delete()
         // ------------
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         // MARK: CREATE WITH BLOCK
         let saveBlockTestObject = PQL(tableName: "TestTable")
         
-        saveBlockTestObject.fields["Foo"] = "Bar"
+        saveBlockTestObject.fields["Foo"] = "Bar" as AnyObject?
         
         saveBlockTestObject.saveWithBlock {(result: String) in
             //Save success!!
@@ -57,9 +57,9 @@ class ViewController: UIViewController {
         // MARK: UPDATE WITH BLOCK
         let updateBlockTestObject = PQL(tableName: "TestTable")
         
-        updateBlockTestObject.whereKey(key: "Foo", equalTo: "Bar")
+        updateBlockTestObject.whereKey(key: "Foo", equalTo: "Bar" as AnyObject)
         
-        updateBlockTestObject.setKey(key: "Foo", value: "Baaar")
+        updateBlockTestObject.setKey(key: "Foo", value: "Baaar" as AnyObject)
         
         updateBlockTestObject.updateWithBlock {(affectedRows: Int) in
             //Update success
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         // MARK: DELETE WITH BLOCK
         let deleteBlockTestObject = PQL(tableName: "TestTable")
         
-        deleteBlockTestObject.whereKey(key: "Foo", equalTo: "Baaar")
+        deleteBlockTestObject.whereKey(key: "Foo", equalTo: "Baaar" as AnyObject)
         
         deleteBlockTestObject.deleteWithBlock {(numOfAffectedRows: Int) in
             //Delete success!!
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         getBlockTestObject.orderByAsc = "id"
         //getBlockTestObject.orderByDesc = "id"
         
-        getBlockTestObject.whereKey(key: "Foo", equalTo: "Bar")
+        getBlockTestObject.whereKey(key: "Foo", equalTo: "Bar" as AnyObject)
         
         getBlockTestObject.limit = 100
         

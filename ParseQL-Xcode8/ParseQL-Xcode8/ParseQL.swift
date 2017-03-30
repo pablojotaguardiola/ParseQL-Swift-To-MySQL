@@ -10,7 +10,7 @@ import Foundation
 
 public class PQL {
     
-    let BASE_URL: String = "http://parseql.com"
+    let BASE_URL: String = "http://localhost"
     
     let PRIVATE_KEY: String = "duybewdkwedw787"
     let TOKEN: String = "`p+23049diqowedqhd++ç!ª!·"
@@ -50,10 +50,10 @@ public class PQL {
     //SAVE
     public func save() {
         if (fields.count > 0) {
-            let config = URLSessionConfiguration.default()
+            let config = URLSessionConfiguration.default
             config.httpAdditionalHeaders = ["Accept": "application/json",
                                             "Content-Type": "application/json"
-                                            ]
+            ]
             
             let session = URLSession(configuration: config)
             
@@ -62,7 +62,7 @@ public class PQL {
             request.httpMethod = "POST"
             
             //DICTIONARY TO SEND
-            let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "fieldsDictionary": fields]
+            let valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "fieldsDictionary": fields as AnyObject]
             
             //ENCRYPT DICTIONARY
             let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
@@ -94,9 +94,9 @@ public class PQL {
     }
     
     //SAVE WITH BLOCK
-    public func saveWithBlock(completion: (String) -> ()) {
+    public func saveWithBlock(completion: @escaping (String) -> ()) {
         if (fields.count > 0) {
-            let config = URLSessionConfiguration.default()
+            let config = URLSessionConfiguration.default
             config.httpAdditionalHeaders = ["Accept": "application/json",
                                             "Content-Type": "application/json"
             ]
@@ -107,7 +107,7 @@ public class PQL {
             request.httpMethod = "POST"
             
             //DICTIONARY TO SEND
-            let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "fieldsDictionary": fields]
+            let valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "fieldsDictionary": fields as AnyObject]
             
             //ENCRYPT DICTIONARY
             let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
@@ -124,6 +124,7 @@ public class PQL {
                     if error == nil {
                         //print(NSString(data: data!, encoding: NSUTF8StringEncoding)!)
                         let responseDictionary = self.convertStringToDictionary(text: (NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String) as String)
+                        
                         let resp = responseDictionary["encryptedData"] as! String
                         
                         //DESENCRYPTED JSON IN STRING FORMAT
@@ -150,8 +151,10 @@ public class PQL {
     }
     
     //GET
-    public func get(completion: ([[String: AnyObject]]) -> ()) {
-        let config = URLSessionConfiguration.default()
+    public func get(completion:
+        
+        @escaping ([[String: AnyObject]]) -> ()) {
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -162,19 +165,19 @@ public class PQL {
         request.httpMethod = "POST"
         
         //DICTIONARY TO SEND
-        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "limit": limit as AnyObject, "skip": skip as AnyObject]
         
         if orderByAsc != nil {
-            valuesToSend["orderByAsc"] = orderByAsc
+            valuesToSend["orderByAsc"] = orderByAsc as AnyObject?
         }
         else if orderByDesc != nil {
-            valuesToSend["orderByDesc"] = orderByDesc
+            valuesToSend["orderByDesc"] = orderByDesc as AnyObject?
         }
         
         if geoDistance != nil && latitude != nil && longitude != nil {
-            valuesToSend["distance"] = geoDistance
-            valuesToSend["latitude"] = latitude
-            valuesToSend["longitude"] = longitude
+            valuesToSend["distance"] = geoDistance as AnyObject?
+            valuesToSend["latitude"] = latitude as AnyObject?
+            valuesToSend["longitude"] = longitude as AnyObject?
         }
         
         //ENCRYPT DICTIONARY
@@ -224,8 +227,8 @@ public class PQL {
     }
     
     //GET OR CREATE
-    public func getOrCreate(completion: ([[String: AnyObject]]) -> ()) {
-        let config = URLSessionConfiguration.default()
+    public func getOrCreate(completion: @escaping ([[String: AnyObject]]) -> ()) {
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -235,19 +238,19 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/getCreateObject")! as URL)
         request.httpMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "fieldsDictionary": fields, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "fieldsDictionary": fields as AnyObject, "whereDictionary": whereKey as AnyObject, "limit": limit as AnyObject, "skip": skip as AnyObject]
         
         if orderByAsc != nil {
-            valuesToSend["orderByAsc"] = orderByAsc
+            valuesToSend["orderByAsc"] = orderByAsc as AnyObject?
         }
         else if orderByDesc != nil {
-            valuesToSend["orderByDesc"] = orderByDesc
+            valuesToSend["orderByDesc"] = orderByDesc as AnyObject?
         }
         
         if geoDistance != nil && latitude != nil && longitude != nil {
-            valuesToSend["distance"] = geoDistance
-            valuesToSend["latitude"] = latitude
-            valuesToSend["longitude"] = longitude
+            valuesToSend["distance"] = geoDistance as AnyObject?
+            valuesToSend["latitude"] = latitude as AnyObject?
+            valuesToSend["longitude"] = longitude as AnyObject?
         }
         
         //ENCRYPT DICTIONARY
@@ -297,8 +300,8 @@ public class PQL {
     }
     
     //UPDATE OR CREATE WITH BLOCK
-    public func updateOrCreateWithBlock(completion: ([[String: AnyObject]]) -> ()) {
-        let config = URLSessionConfiguration.default()
+    public func updateOrCreateWithBlock(completion: @escaping ([[String: AnyObject]]) -> ()) {
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -308,7 +311,7 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateCreateObject")! as URL)
         request.httpMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "fieldsToSet": setKey as AnyObject]
         
         //ENCRYPT DICTIONARY
         let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
@@ -357,8 +360,8 @@ public class PQL {
     }
     
     //UPDATE WITH BLOCK
-    public func updateWithBlock(completion: (Int) -> ()) {
-        let config = URLSessionConfiguration.default()
+    public func updateWithBlock(completion: @escaping (Int) -> ()) {
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -368,7 +371,7 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateObject")! as URL)
         request.httpMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "fieldsToSet": setKey as AnyObject]
         
         //ENCRYPT DICTIONARY
         let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
@@ -411,7 +414,7 @@ public class PQL {
     
     //UPDATE OR CREATE
     public func updateOrCreate() {
-        let config = URLSessionConfiguration.default()
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -421,7 +424,7 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateCreateObject")! as URL)
         request.httpMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "fieldsToSet": setKey as AnyObject]
         
         //ENCRYPT DICTIONARY
         let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
@@ -452,7 +455,7 @@ public class PQL {
     
     //UPDATE
     public func update() {
-        let config = URLSessionConfiguration.default()
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -462,7 +465,7 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/updateObject")! as URL)
         request.httpMethod = "POST"
         
-        let valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "fieldsToSet": setKey]
+        let valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "fieldsToSet": setKey as AnyObject]
         
         //ENCRYPT DICTIONARY
         let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
@@ -493,7 +496,7 @@ public class PQL {
     
     //DELETE
     public func delete() {
-        let config = URLSessionConfiguration.default()
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -503,19 +506,19 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/deleteObject")! as URL)
         request.httpMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "limit": limit as AnyObject, "skip": skip as AnyObject]
         
         if orderByAsc != nil {
-            valuesToSend["orderByAsc"] = orderByAsc
+            valuesToSend["orderByAsc"] = orderByAsc as AnyObject?
         }
         else if orderByDesc != nil {
-            valuesToSend["orderByDesc"] = orderByDesc
+            valuesToSend["orderByDesc"] = orderByDesc as AnyObject?
         }
         
         if geoDistance != nil && latitude != nil && longitude != nil {
-            valuesToSend["distance"] = geoDistance
-            valuesToSend["latitude"] = latitude
-            valuesToSend["longitude"] = longitude
+            valuesToSend["distance"] = geoDistance as AnyObject?
+            valuesToSend["latitude"] = latitude as AnyObject?
+            valuesToSend["longitude"] = longitude as AnyObject?
         }
         
         //ENCRYPT DICTIONARY
@@ -544,10 +547,10 @@ public class PQL {
             
         }
     }
-
+    
     //DELETE WITH BLOCK
-    public func deleteWithBlock(affectedRows completion: (Int) -> ()) {
-        let config = URLSessionConfiguration.default()
+    public func deleteWithBlock(affectedRows completion: @escaping (Int) -> ()) {
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -557,19 +560,19 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/deleteObject")! as URL)
         request.httpMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey, "limit": limit, "skip": skip]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject, "limit": limit as AnyObject, "skip": skip as AnyObject]
         
         if orderByAsc != nil {
-            valuesToSend["orderByAsc"] = orderByAsc
+            valuesToSend["orderByAsc"] = orderByAsc as AnyObject?
         }
         else if orderByDesc != nil {
-            valuesToSend["orderByDesc"] = orderByDesc
+            valuesToSend["orderByDesc"] = orderByDesc as AnyObject?
         }
         
         if geoDistance != nil && latitude != nil && longitude != nil {
-            valuesToSend["distance"] = geoDistance
-            valuesToSend["latitude"] = latitude
-            valuesToSend["longitude"] = longitude
+            valuesToSend["distance"] = geoDistance as AnyObject?
+            valuesToSend["latitude"] = latitude as AnyObject?
+            valuesToSend["longitude"] = longitude as AnyObject?
         }
         
         //ENCRYPT DICTIONARY
@@ -614,8 +617,8 @@ public class PQL {
     }
     
     //COUNT
-    public func count(completion: (Int) -> ()) {
-        let config = URLSessionConfiguration.default()
+    public func count(completion: @escaping (Int) -> ()) {
+        let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Accept": "application/json",
                                         "Content-Type": "application/json"
         ]
@@ -625,12 +628,12 @@ public class PQL {
         let request = NSMutableURLRequest(url: NSURL(string: BASE_URL + "/parseql/index.php/parseQLController/count")! as URL)
         request.httpMethod = "POST"
         
-        var valuesToSend: [String: AnyObject] = ["token": TOKEN, "tableName": tableName, "whereDictionary": whereKey]
+        var valuesToSend: [String: AnyObject] = ["token": TOKEN as AnyObject, "tableName": tableName as AnyObject, "whereDictionary": whereKey as AnyObject]
         
         if geoDistance != nil && latitude != nil && longitude != nil {
-            valuesToSend["distance"] = geoDistance
-            valuesToSend["latitude"] = latitude
-            valuesToSend["longitude"] = longitude
+            valuesToSend["distance"] = geoDistance as AnyObject?
+            valuesToSend["latitude"] = latitude as AnyObject?
+            valuesToSend["longitude"] = longitude as AnyObject?
         }
         
         //ENCRYPT DICTIONARY
@@ -705,7 +708,7 @@ public class PQL {
     public func setKey(key: String, value: AnyObject) {
         setKey[key] = value
     }
-
+    
     //PRIVATE TOOLS
     
     internal func convertStringToDictionary(text: String) -> [String:AnyObject] {
@@ -744,10 +747,10 @@ public class PQL {
         do {
             let dataToEncrypt = try JSONSerialization.data(withJSONObject: dictionary, options:JSONSerialization.WritingOptions.prettyPrinted)
             
-            let count = dataToEncrypt.count / sizeof(UInt8)
+            let count = dataToEncrypt.count / MemoryLayout<UInt8>.size
             var dataToEncryptArray = [UInt8](repeating: 0, count: count)
             
-            dataToEncrypt.copyBytes(to: &dataToEncryptArray, count:count * sizeof(UInt8))
+            dataToEncrypt.copyBytes(to: &dataToEncryptArray, count:count * MemoryLayout<UInt8>.size)
             
             encryptedData = xorWithKey(byteArray: [UInt8](String(data: dataToEncrypt, encoding: String.Encoding.utf8)!.utf8), key: PRIVATE_KEY)
         }
@@ -793,9 +796,9 @@ public class PQL {
     
     //TESTS
     //SAVE WITH BLOCK TEST
-    public func saveWithBlockTest(completion: (String) -> ()) {
+    public func saveWithBlockTest(completion: @escaping (String) -> ()) {
         if (fields.count > 0) {
-            let config = URLSessionConfiguration.default()
+            let config = URLSessionConfiguration.default
             config.httpAdditionalHeaders = ["Accept": "application/json",
                                             "Content-Type": "application/json"
             ]
@@ -806,7 +809,7 @@ public class PQL {
             request.httpMethod = "POST"
             
             //DICTIONARY TO SEND
-            let valuesToSend: [String: AnyObject] = ["tableName": tableName, "fieldsDictionary": fields]
+            let valuesToSend: [String: AnyObject] = ["tableName": tableName as AnyObject, "fieldsDictionary": fields as AnyObject]
             
             //ENCRYPT DICTIONARY
             let valuesToSendEncrypted = ["encryptedData": encryptDictionaryJson(dictionary: valuesToSend)]
